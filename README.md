@@ -12,8 +12,53 @@ D- Dependency Inversion Principle.
 ### SRP - Single Responsibility Principle(Principio de Responsabilidade Unica):  
 Esse Principio dita que uma classe pode ter apenas uma responsabilidade, ou seja, executar uma unica tarefa dentro do código. É comum a existencia de GOD Class's, Classes que fazem ou sabem demais, isso implica em um problema de manutenção e modificação, afinal é o mesmo que mexer em um emaranhado de fios, é confuso e as chances de dar errado é altissima, é ai que surje a SRP. A SRP impede a falta de coesão, o alto acoplamentro (muitas dependências), e a dificuldade que reaproveitar o código pois todos estão separados e exucutando a sua (única)função, melhorando até mesmo a legibilidade do código.
 
-Código de soma normal.
+'''
+ # Uma classe que tem 2 responsabilidades -> operações matematicas e apresentação dos resuldados
+class SomaSub: 
+    def soma(self, a, b):
+        soma = a + b
+        self.soma = soma
 
+    def sub(self, a, b):
+        sub = a - b
+        self.sub = sub
+
+    def apresentar(self):
+        print(f"Soma: {self.soma}")
+        print(f"sub : {self.sub}")
+
+# Sendo assim não segue o principio SRP
+cal = SomaSub()
+cal.soma(20, 30)
+cal.sub(20, 30)
+cal.apresentar()
+
+
+# Para aplicar o SRP as seguintes mudanças são necessarias:
+# A classe somasub apenas realiza as operações:
+class SomaSub:
+
+    def soma(self, a, b):
+        self.soma = a + b
+
+    def sub(self, a, b):
+        self.sub = a - b
+
+# É criada outra classe para a Apresentação
+class Apresentador:
+    def apresentar(self, operacoes):
+        print(f"Soma: {operacoes.soma}")
+        print(f"Sub : {operacoes.sub}")
+
+
+# Uso:
+op = SomaSub()
+op.soma(20, 30)
+op.sub(20, 30)
+
+apresentador = Apresentador()
+apresentador.apresentar(op)
+'''
 
 
 

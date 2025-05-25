@@ -15,7 +15,17 @@ Esse Principio dita que uma classe pode ter apenas uma responsabilidade, ou seja
 Código de soma normal.
 
 
+
+
 ### OCP - Open/Closed Principle(Principio Aberto/Fechado):  
 O principio OCP diz que "Obejetos ou entidades devem estar abertas para extensão, mas fechadas para modificação", digamos que você precise criar uma nova ligação de energia,  concordamos que é extremamente mais fácil fazer uma ligação/puxar de um ponto ja existente doque desmontar o quadro de energia inteiro para adicionala, afinal, quem garante que sera a ultima ligação a ser criada ? O principio OCP nos diz "exatamente" isso. 
 
 Atendimento de PET Shop.
+
+### LSP - Liskov Substitution Principle(Principio da Substituição de Liskov):  
+"Uma classe derivada deve ser substituivel por sua classe base" em um breve resumo, caso eu precise usar um componente que tem sua origem de outro componente, a maquina deve funcionar da mesma forma, sem precisar fazer modificações, afinal, um componente veio de outro. Esse principio para ser sequido de forma correta é precisso de outros principios de SOLID como o OCP.  
+
+Não sei ainda.  
+
+### ISP - Interface Segregation Principle(Principio da Segregação da Interface):  
+Esse principio visa a não inutilidade "Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar", as interfaces devem ser especificas ao invés de genéricas. Quando criamos uma interface de comportamento por exemplo, podemos abstrair de forma que "todos os seres teram os mesmo comportamentos", porém é nitido que a classe pessoa não vai ter o mesmo comportamento que a classe cachorro, porém pode haver semelhanças, logo, alguns comportamentos não seram utilizados em uma classe, assim sendo -> inutil.  
